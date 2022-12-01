@@ -1,5 +1,7 @@
 package Alex
 
-import common.Utilities
-class Day1 {
+import common.*
+
+fun main() {
+    //TODO: solve day 1
 }

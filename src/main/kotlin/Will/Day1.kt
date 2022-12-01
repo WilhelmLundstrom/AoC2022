@@ -1,9 +1,6 @@
-import common.Utilities
+import common.*
 
-fun main(args: Array<String>) {
-    val input = Utilities.getInputForDay(1,1);
-    val data = mutableListOf<String>()
-    input.bufferedReader().forEachLine { data.add(it) }
-    data.removeIf { it.isEmpty() }
-    print(data);
+fun main() {
+    val data = Utilities.getInputAsStringList(TEST, 1,1)
+    print(data)
 }
