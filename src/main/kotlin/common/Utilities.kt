@@ -12,8 +12,6 @@ val WILL = "Will"
 object Utilities {
 
     fun getInputForDay(who: String, day: Int, part: Int): InputStream {
-        println(Thread.currentThread().getStackTrace())
-        println(Paths.get("").toAbsolutePath())
         return File("src/main/resources/"+who+"/data-"+day+"-"+part).inputStream();
     }
 
