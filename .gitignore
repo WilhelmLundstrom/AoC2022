@@ -1,5 +1,7 @@
 # obvious ignores
-.idea/*
+.idea/workspace.xml
+.idea/vcs.xml
+modules.xml
 *.iml
 out/*
 
