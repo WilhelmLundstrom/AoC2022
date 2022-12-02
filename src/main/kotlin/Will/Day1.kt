@@ -1,7 +1,7 @@
 import common.*
 
 fun main() {
-    val data = Utilities.getInputAsStringList(WILL, 1,1)
+    val data = Utilities.getInputAsStringList(WILL, 1)
 
     val calories = mutableListOf<Int>()
     var cal = 0

@@ -11,11 +11,11 @@ val WILL = "Will"
 
 object Utilities {
 
-    fun getInputForDay(who: String, day: Int, part: Int): InputStream {
+    fun getInputForDay(who: String, day: Int, part: Int = 1): InputStream {
         return File("src/main/resources/"+who+"/data-"+day+"-"+part).inputStream();
     }
 
-    fun getInputAsStringList(who: String, day: Int, part: Int): MutableList<String> {
+    fun getInputAsStringList(who: String, day: Int, part: Int = 1): MutableList<String> {
         val lineList = mutableListOf<String>();
         getInputForDay(who, day, part).bufferedReader().forEachLine { lineList.add(it) }
         return lineList;
