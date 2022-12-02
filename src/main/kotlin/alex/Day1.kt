@@ -4,7 +4,7 @@ import common.*
 
 fun main() {
     val test = "Test";
-    val data = Utilities.getInputAsStringList(ALEX, 1, 1);
+    val data = Utilities.getInputAsStringList(ALEX, 1, 1);      //ALEX can be swapped for TEST or WILL to direct the input to fetch different data
 
     var currcal = 0
 
@@ -27,13 +27,13 @@ fun main() {
  */
 
     val elfcals = mutableListOf<Int>()
-    data.forEach { line ->     //rename "it" to line
+    data.forEach { line ->     //rename "it" to line, iterate over objects in <var> and call them "line" (default is "it")
         println(line)
         if (line.isEmpty()) {
             elfcals += currcal
             currcal = 0
         } else {
-            currcal += line.toInt()
+            currcal += line.toInt()         //this is how you cast in Kotlin
         }
     }
     if (currcal != 0) {
@@ -43,8 +43,8 @@ fun main() {
     elfcals.sortByDescending { it }
 
     //println("max cal of three elf is: ${elfcals.first() + elfcals.get(1) + elfcals.get(2)}")
-    println("max cal of the three elf is: ${elfcals.first()} + ${elfcals.get(1)} + ${elfcals.get(2)}")
-    println("the sum is ${elfcals.take(3).sum()}")
+    println("max cal of the three elf is: ${elfcals.first()} + ${elfcals.get(1)} + ${elfcals.get(2)}")      //weird bash syntax
+    println("the sum is ${elfcals.take(3).sum()}")      //take will grab the first <var> elements in the list
 }
 
 
