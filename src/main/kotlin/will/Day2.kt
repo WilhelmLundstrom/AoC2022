@@ -1,4 +1,4 @@
-package Will
+package will
 
 import common.*
 

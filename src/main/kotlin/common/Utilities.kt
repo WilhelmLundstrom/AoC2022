@@ -2,11 +2,10 @@ package common
 
 import java.io.File
 import java.io.InputStream
-import java.nio.file.Paths
 
 
 val TEST = "Test"
-val ALEX = "Alex"
+val ALEX = "alex"
 val WILL = "Will"
 
 object Utilities {
