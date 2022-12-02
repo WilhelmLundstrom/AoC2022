@@ -1,18 +1,22 @@
 import common.*
 
 fun main() {
-    val data = Utilities.getInputAsStringList(TEST, 1,1)
+    val data = Utilities.getInputAsStringList(WILL, 1,1)
 
-    var biggest = 0
-    var tmp = 0
+    val calories = mutableListOf<Int>()
+    var cal = 0
     data.forEach {
         if (it.isEmpty()) {
-            biggest = if (biggest < tmp) tmp else biggest;
-            tmp = 0
+            calories += cal
+            cal = 0
         } else {
-            tmp += it.toInt()
+            cal += it.toInt()
         }
     }
+    // necessary since last set of numbers won't be followed by an empty string
+    calories += cal
 
-    println ("Solution for part 1: $biggest")
+    calories.sortByDescending { it }
+    println ("Solution for part 1: ${calories.first()}")
+    println ("Solution for part 2: ${calories.take(3).sum()}")
 }

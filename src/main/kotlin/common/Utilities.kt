@@ -16,7 +16,7 @@ object Utilities {
     }
 
     fun getInputAsStringList(who: String, day: Int, part: Int): MutableList<String> {
-        val lineList: MutableList<String> = mutableListOf<String>();
+        val lineList = mutableListOf<String>();
         getInputForDay(who, day, part).bufferedReader().forEachLine { lineList.add(it) }
         return lineList;
     }
