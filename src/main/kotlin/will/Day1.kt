@@ -7,7 +7,8 @@ fun main() {
 
     val calories = mutableListOf<Int>()
     var cal = 0
-    data.forEach {
+    data.forEach{
+
         if (it.isEmpty()) {
             calories += cal
             cal = 0
