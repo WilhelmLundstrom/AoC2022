@@ -38,9 +38,9 @@ fun main() {
 
     val list = mutableListOf<Int>()
     rootNode.addSumsToList(list)
-    println("Sum of smaller directories: ${list.filter { it <= 100000 }.sumOf { it }}")
+    println("Sum of smaller directories: ${list.filter { it <= 100000 }.sum()}")
 
     list.sortBy { it }
-    val size = list.find { it > (list.last()-40000000) } // largest dir will of course be the root dir ("/")
+    val size = list.find { it > (list.last()-40000000) } // The "/" size is largest so will be last. Its size is also the total size.
     println("Remove one directory to to free up $size")
 }
