@@ -64,3 +64,7 @@ fun main() {
     println("gamesum after correction: " + gamesum)
 
 }
+/* om github bårkar:
+eval "$(ssh-agent -s)"
+ssh-add ../.ssh/github
+ */
