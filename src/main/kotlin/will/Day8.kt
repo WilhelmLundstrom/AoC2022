@@ -4,7 +4,7 @@ import common.*
 import kotlin.math.acos
 
 data class Tree(var height: Int, var visible: Boolean = false, var score: Int = 1) {
-    // (x,y) = (0,0) in upper left cornert
+    // (x,y) = (0,0) in upper left corner
     fun findScore(x: Int, y: Int, grid: List<List<Tree>>) {
         //left
         when(val tmp = grid[y].subList(0,x).indexOfLast { it.height >= height }) {
@@ -35,7 +35,6 @@ data class Tree(var height: Int, var visible: Boolean = false, var score: Int = 
 fun main() {
     val input = Utilities.getInputAsStringList(WILL, 8)
     val grid = input.map { string -> string.toList().map { char -> Tree(char.digitToInt()) } }
-
     grid.forEachIndexed { y, row ->
         row.forEachIndexed { x, tree ->
             tree.findScore(x,y,grid)
