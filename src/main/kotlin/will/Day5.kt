@@ -23,7 +23,7 @@ fun main() {
         it.split(" ").forEach { value -> if(value.toIntOrNull() != null) commands += value.toInt() }
     }
 
-    commands.windowed(3,3) {
+    commands.chunked(3).forEach {
         (cargo[it[1]-1].take(it[0])).reversed().forEach { c -> cargo[it[2]-1].addFirst(c) }
         (0..it[0]-1).forEach { tmp -> cargo[it[1]-1].removeFirst() }
     }
