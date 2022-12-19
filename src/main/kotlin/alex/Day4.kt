@@ -5,58 +5,45 @@ import common.*
 fun main(){
     val data = Utilities.getInputAsStringList(ALEX, 4, 1)
 
-    var pair = listOf<String>("","")
-    var set1 = listOf<Int>(0,0)
-    var set2 = listOf<Int>(0,0)
-    var ovrlap = 0
-    var lap = 1
+    var pair: List<String>
+    var set1: Pair<Int, Int>
+    var set2: Pair<Int, Int>
+    var overlap = 0
 
     data.forEach {line ->
         pair = line.split(",")
-        //println("set1: " + pair.get(0) + " set 2: " + pair.get(1))
+        set1 = pair.first().split("-").first().toInt() to pair.first().split("-").last().toInt()
+        set2 = pair.last().split("-").first().toInt() to pair.last().split("-").last().toInt()
 
-        set1 = listOf<Int>(pair.get(0).split("-").get(0).toInt(), pair.get(0).split("-").get(1).toInt())
-        set2 = listOf<Int>(pair.get(1).split("-").get(0).toInt(), pair.get(1).split("-").get(1).toInt())
-
-        //println("set1: " + set1.get(0) + ", " + set1.get(1) + " set2: " + set2.get(0) + ", " + set2.get(1))
-
-        if(set1.get(1) - set1.get(0) >= (set2.get(1) - set2.get(0))){
-            if(set1.get(0) <= set2.get(0) && set1.get(1) >= set2.get(1)){
-                ovrlap++
-                //println("overlap on : " + lap)
+        if(set1.second - set1.first >= (set2.second - set2.first)){
+            if(set1.first <= set2.first && set1.second >= set2.second){
+                overlap++
             }
         } else {
-            if(set2.get(0) <= set1.get(0) && set2.get(1) >= set1.get(1)){
-                ovrlap++
-                //println("overlap on : " + lap)
+            if(set2.first <= set1.first && set2.second >= set1.second){
+                overlap++
             }
         }
     }
-    println("overlapping work: " + ovrlap)
-    lap++
+    println("overlapping work: $overlap")
 
 //================================== PART 2 ===========================================
-    pair = listOf<String>("","")
-    set1 = listOf<Int>(0,0)
-    set2 = listOf<Int>(0,0)
-    ovrlap = 0
-    lap = 1
+    overlap = 0
 
     data.forEach{line ->
         pair = line.split(",")
+        set1 = pair.first().split("-").first().toInt() to pair.first().split("-").last().toInt()
+        set2 = pair.last().split("-").first().toInt() to pair.last().split("-").last().toInt()
 
-        set1 = listOf<Int>(pair.get(0).split("-").get(0).toInt(), pair.get(0).split("-").get(1).toInt())
-        set2 = listOf<Int>(pair.get(1).split("-").get(0).toInt(), pair.get(1).split("-").get(1).toInt())
-
-        if(set1.get(0) >= set2.get(0) && set1.get(0) <= set2.get(1)){
-            ovrlap++
-        } else if (set1.get(1) >= set2.get(0) && set1.get(1) <= set2.get(1)){
-            ovrlap++
-        } else if (set2.get(0) >= set1.get(0) && set2.get(0) <= set1.get(1)){
-            ovrlap++
-        } else if (set2.get(1) >= set1.get(0) && set2.get(1) <= set1.get(1)){
-            ovrlap++
+        if(set1.first >= set2.first && set1.first <= set2.second){
+            overlap++
+        } else if (set1.second >= set2.first && set1.second <= set2.second){
+            overlap++
+        } else if (set2.first >= set1.first && set2.first <= set1.second){
+            overlap++
+        } else if (set2.second >= set1.first && set2.second <= set1.second){
+            overlap++
         }
     }
-    println("overlapping work: " + ovrlap)
+    println("overlapping work: $overlap")
 }
